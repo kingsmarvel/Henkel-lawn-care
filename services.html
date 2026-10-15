@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services | Henkel Lawn &amp; Landscape LLC | Union, MO</title>
+<meta name="description" content="Lawn maintenance, fertilization and weed control, mulch installation, landscape construction, snow removal and de-icing across Union, MO.">
+
+<!-- =========================================================
+     FONTS — identical to the home and about pages.
+     ========================================================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<style>
+/* Shared tokens, reset, header/topbar/nav, buttons, image
+   placeholders, footer and flag strip all live in style.css.
+   This block only holds rules specific to this page. */
+
+/* =========================================================
+   4. PAGE BANNER  (shared with about.html)
+   ========================================================= */
+.banner{position:relative;background:var(--green-dark);min-height:400px;display:flex;align-items:center;text-align:center}
+.banner__media{position:absolute;inset:0}
+/* BANNER PHOTO: replace with <img class="banner__img" src="images/services-banner.jpg" alt=""> */
+.banner__media .ph{width:100%;height:100%;border-radius:0;border:0}
+.banner__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner::after{content:"";position:absolute;inset:0;background:rgba(10,26,12,.78)}
+.banner .wrap{position:relative;z-index:2;padding-top:80px;padding-bottom:80px}
+.banner h1{color:#fff;margin-top:8px}
+.banner .mark{display:block;margin:0 auto 22px}
+.banner .mark b{display:block;font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:#fff;letter-spacing:-.5px;line-height:1;text-transform:uppercase}
+.banner .mark span{display:block;font-size:.68rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--green-light);margin-top:4px}
+.crumbs{margin-top:16px;font-size:.82rem;letter-spacing:1px;color:#bcd2b0;text-transform:uppercase}
+.crumbs a:hover{color:var(--green-light)}
+
+/* =========================================================
+   5. INTRO  —  centred statement above the grid
+   ========================================================= */
+.intro{text-align:center}
+.intro .lead{margin:16px auto 0}
+
+/* =========================================================
+   6. SERVICE CARDS  —  photo + title + one line
+   Duplicate a whole <article class="card"> to add a service.
+   ========================================================= */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.25s;text-align:left}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+/* SERVICE PHOTO: swap .ph for <img src="images/service-name.jpg" alt=""> */
+.card .ph{min-height:200px;border:0;border-radius:0}
+.card img{width:100%;height:200px;object-fit:cover;border-radius:var(--photo-radius);display:block}
+.card__body{padding:24px}
+.card h3{text-transform:uppercase;font-size:1rem;letter-spacing:.4px}
+.card p{font-size:.92rem;margin-top:8px}
+
+/* =========================================================
+   7. CATEGORY TABS  —  filters the grid above by season
+   Buttons carry data-filter; cards carry data-category.
+   Use "all" to show everything.
+   ========================================================= */
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.tab{
+  font-family:var(--font-head);font-weight:600;font-size:.78rem;letter-spacing:1px;
+  text-transform:uppercase;padding:11px 24px;border-radius:var(--radius);
+  border:2px solid var(--line);background:#fff;color:var(--body);cursor:pointer;transition:.2s;
+}
+.tab:hover{border-color:var(--green-light)}
+.tab.active{background:var(--green);border-color:var(--green);color:#fff}
+.card.is-hidden{display:none}
+
+/* =========================================================
+   8. PROGRAMS  —  what a maintenance contract includes
+   ========================================================= */
+.programs{background:var(--green-dark);color:#fff}
+.programs h2{color:#fff}
+.programs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.programs ul{margin-top:24px;display:grid;gap:12px}
+.programs li{padding-left:30px;position:relative;color:#d8e7cf}
+.programs li::before{content:"";position:absolute;left:0;top:11px;width:12px;height:12px;background:var(--green-light);border-radius:2px}
+.programs .ph{min-height:340px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3);color:#c7d9bc}
+.programs img{width:100%;height:340px;object-fit:cover;border-radius:var(--photo-radius);display:block}
+
+/* =========================================================
+   9. WHO WE SERVE  —  three audience panels
+   ========================================================= */
+.serve{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.serve .panel{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green-light);border-radius:var(--radius);padding:32px}
+.serve h3{text-transform:uppercase;font-size:1rem;margin-bottom:10px}
+.serve p{font-size:.93rem}
+
+/* =========================================================
+   10. TOP RATED BLOCK  —  photo pair + floating badge
+   Same component as the about page.
+   ========================================================= */
+.rated .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.rated__media{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+/* PHOTOS: replace both with <img src="images/…jpg" alt=""> */
+.rated__media .ph:first-child{min-height:320px}
+.rated__media .ph:last-child{min-height:320px;margin-top:44px}
+.rated__media img{width:100%;height:320px;object-fit:cover;border-radius:var(--photo-radius);display:block}
+.rated__media img:nth-of-type(2){margin-top:44px}
+.badge{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);background:#fff;box-shadow:var(--shadow);border-radius:var(--radius);padding:16px 26px;text-align:center;min-width:180px}
+.badge b{display:block;font-family:var(--font-head);font-size:1.6rem;color:var(--ink);line-height:1}
+.badge .stars{color:var(--green-light);letter-spacing:3px;font-size:.85rem;margin:4px 0}
+.badge span{font-size:.72rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--body)}
+
+/* =========================================================
+   11. FAQ ACCORDION  —  click a question to open it
+   ========================================================= */
+.faq{max-width:840px;margin:0 auto}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__q{
+  width:100%;background:none;border:0;text-align:left;cursor:pointer;
+  font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--ink);
+  padding:22px 40px 22px 0;position:relative;
+}
+.faq__q::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--green);font-weight:400;transition:.2s}
+.faq__item.open .faq__q::after{content:"–"}
+.faq__a{display:none;padding:0 0 22px;font-size:.95rem}
+.faq__item.open .faq__a{display:block}
+
+/* =========================================================
+   12. CONTACT BAND  (shared)
+   ========================================================= */
+.contact{background:var(--green);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contact h2{color:#fff}
+.contact p{color:#e2f2d8}
+.contact .lines{margin:26px 0;display:grid;gap:10px;font-family:var(--font-head);font-weight:600}
+.contact .lines a:hover{color:var(--green-light)}
+/* MAP: replace with a Google Maps <iframe> */
+.contact .ph{min-height:320px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#e6f4dd}
+
+/* =========================================================
+   13. PATRIOTIC STRIP  (shared)
+   ========================================================= */
+
+
+/* =========================================================
+   15. RESPONSIVE
+   ========================================================= */
+@media (max-width:1024px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .serve{grid-template-columns:1fr}
+  .footer .cols{grid-template-columns:1fr 1fr}
+  .programs .wrap,.rated .wrap,.contact .wrap{grid-template-columns:1fr;gap:40px}
+  .rated__media{margin-bottom:40px}
+}
+@media (max-width:820px){
+  .burger{display:flex}
+  .header .wrap{height:70px}
+  .header .btn{display:none}
+  .nav{position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none;padding:14px 22px 22px}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;gap:2px}
+  .nav a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  .section{padding:64px 0}
+  .banner{min-height:320px}
+}
+@media (max-width:560px){
+  .cards,.footer .cols,.rated__media{grid-template-columns:1fr}
+  .rated__media .ph:last-child{margin-top:0}
+  .topbar .wrap{justify-content:center;text-align:center}
+  .tab{flex:1 1 44%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     TOP BAR  (shared)
+     ========================================================= -->
+<div class="topbar">
+  <div class="wrap">
+    <div>Transforming your outdoor dreams into reality</div>
+    <div>
+      <a href="tel:+16365435520">(636) 543-5520</a> &nbsp;·&nbsp;
+      <a href="#" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     HEADER  —  "Services" carries the .active class here
+     ========================================================= -->
+<header class="header" id="siteHeader">
+  <div class="wrap">
+
+    <a class="logo" href="index.html">
+      <b>Henkel<span>Lawn &amp; Landscape</span></b>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html#testimonials">Testimonials</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <a href="contact.html#contact-form" class="btn btn--primary">Free estimate</a>
+  </div>
+</header>
+
+<!-- =========================================================
+     PAGE BANNER
+     ========================================================= -->
+<section class="banner">
+  <div class="banner__media">
+    <!-- BANNER PHOTO: replace with <img class="banner__img" src="images/services-banner.jpg" alt=""> -->
+    <img class="banner__img" src="images/services-banner.jpg" alt="Lawn care equipment and truck">
+  </div>
+  <div class="wrap">
+    <div class="mark"><b>Henkel</b><span>Lawn &amp; Landscape</span></div>
+    <span class="eyebrow">Union, MO &amp; Franklin County</span>
+    <h1>Our services</h1>
+    <div class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; Services</div>
+  </div>
+</section>
+
+<!-- =========================================================
+     INTRO  +  FILTER TABS  +  SERVICE GRID
+     Each card has data-category so the tabs can filter it.
+     Categories in use: maintenance | construction | winter
+     ========================================================= -->
+<section class="section intro">
+  <div class="wrap">
+
+    <span class="eyebrow">Henkel Lawn &amp; Landscape LLC — Union, MO</span>
+    <h2>Lawn, landscape and snow services</h2>
+    <p class="lead">Henkel is a full service outdoor maintenance and installation company. Our highly trained technicians handle jobs of all sizes for residential and commercial properties, and every estimate is free.</p>
+
+    <!-- FILTER TABS — data-filter must match a data-category below -->
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-filter="all">All services</button>
+      <button class="tab" data-filter="maintenance">Lawn maintenance</button>
+      <button class="tab" data-filter="construction">Landscape construction</button>
+      <button class="tab" data-filter="winter">Snow &amp; ice</button>
+    </div>
+
+    <div class="cards" id="cards">
+
+      <!-- SERVICE 1 -->
+      <article class="card" data-category="maintenance">
+        <img src="images/service-mowing.jpg" alt="Lawn mowing service">
+        <div class="card__body">
+          <h3>Lawn maintenance</h3>
+          <p>Scheduled mowing, trimming and clean-up on a program that runs through the season.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 2 -->
+      <article class="card" data-category="maintenance">
+        <img src="images/service-fertilization.jpg" alt="Fertilization and weed control">
+        <div class="card__body">
+          <h3>Fertilization &amp; weed control</h3>
+          <p>Treatment programs that thicken the turf and keep weeds from taking hold.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 3 -->
+      <article class="card" data-category="maintenance">
+        <img src="images/service-mulch.jpg" alt="Mulch installation">
+        <div class="card__body">
+          <h3>Mulch installation</h3>
+          <p>Fresh mulch laid through your beds to hold moisture and sharpen every edge.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 4 -->
+      <article class="card" data-category="maintenance">
+        <img src="images/service-leaf-cleanup.jpg" alt="Curbside leaf cleanup">
+        <div class="card__body">
+          <h3>Curbside leaf cleanup</h3>
+          <p>Lose the bags and regain your free time. We vacuum the leaves straight from the curb.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 5 -->
+      <article class="card" data-category="construction">
+        <img src="images/service-installation.jpg" alt="Landscape installation">
+        <div class="card__body">
+          <h3>Landscape installation</h3>
+          <p>Design and build work that turns a plan on paper into a finished yard.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 6 -->
+      <article class="card" data-category="construction">
+        <img src="images/service-paver-patio.jpg" alt="Paver patios and walkways">
+        <div class="card__body">
+          <h3>Paver patios &amp; walkways</h3>
+          <p>Patios, walks and steps built to sit level through Ohio winters.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 7 -->
+      <article class="card" data-category="construction">
+        <img src="images/service-soil-delivery.jpg" alt="Soil and fill delivery">
+        <div class="card__body">
+          <h3>Soil &amp; fill delivery</h3>
+          <p>Topsoil, fill dirt and stone dropped where you need it on site.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 8 -->
+      <article class="card" data-category="winter">
+        <img src="images/service-snow-plow.jpg" alt="Snow removal">
+        <div class="card__body">
+          <h3>Snow removal</h3>
+          <p>Plowing across a wide service area in Union, MO, day or night.</p>
+        </div>
+      </article>
+
+      <!-- SERVICE 9 -->
+      <article class="card" data-category="winter">
+        <img src="images/service-deicing.jpg" alt="De-icing service">
+        <div class="card__body">
+          <h3>De-icing</h3>
+          <p>Salting and treatment that keeps drives and walks safe underfoot.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PROGRAMS  —  2026 openings
+     ========================================================= -->
+<section class="section programs">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Booking now</span>
+      <h2>We're accepting customers for 2026</h2>
+      <ul>
+        <li>2026 lawn &amp; landscape maintenance programs</li>
+        <li>2026 fertilization &amp; weed control programs</li>
+        <li>2026 landscape installation and enhancement projects</li>
+        <li>2026 mulch installation projects</li>
+      </ul>
+      <p style="margin-top:30px"><a href="contact.html#contact-form" class="btn btn--primary">Request an estimate</a></p>
+    </div>
+    <!-- PROGRAMS PHOTO: replace with <img src="images/spring-lawn.jpg" alt=""> -->
+    <img src="images/spring-lawn.jpg" alt="Spring lawn and mulched beds">
+  </div>
+</section>
+
+<!-- =========================================================
+     WHO WE SERVE
+     ========================================================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow">Who we work for</span>
+      <h2>Residential, commercial and public</h2>
+    </div>
+
+    <div class="serve">
+      <!-- PANEL 1 -->
+      <div class="panel">
+        <h3>Residential</h3>
+        <p>Weekly maintenance, seasonal clean-ups and full installations on homes across Union, MO.</p>
+      </div>
+      <!-- PANEL 2 -->
+      <div class="panel">
+        <h3>Commercial</h3>
+        <p>Grounds kept presentable year-round, with plowing and de-icing once the season turns.</p>
+      </div>
+      <!-- PANEL 3 -->
+      <div class="panel">
+        <h3>Public</h3>
+        <p>Larger-scale maintenance and construction work handled by experienced local crews.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TOP RATED BLOCK
+     ========================================================= -->
+<section class="section section--cream rated">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Bundle and save</span>
+      <h2>Hire us for more than one service</h2>
+      <p class="lead" style="margin-top:16px">Existing customers receive additional discounts on every service they add. If we already maintain your lawn, we can mulch your beds or install the paver patio you've been putting off.</p>
+      <p class="lead">You can also earn by referring us to friends and family. Contact us for details.</p>
+      <p style="margin-top:30px"><a href="contact.html#contact-form" class="btn btn--primary">Ask about discounts</a></p>
+    </div>
+
+    <div class="rated__media">
+      <!-- PHOTOS: replace both with <img src="images/…jpg" alt=""> -->
+      <img src="images/services-rated-1.jpg" alt="Landscaping equipment closeup">
+      <img src="images/services-rated-2.jpg" alt="Finished lawn aerial view">
+
+      <!-- BADGE -->
+      <div class="badge">
+        <b>92%</b>
+        <div class="stars" style="color:var(--body);font-size:.75rem;letter-spacing:.5px;font-style:normal">21 reviews</div>
+        <span>Recommend us</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ ACCORDION
+     Add a question by copying one .faq__item block.
+     ========================================================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow">Before you call</span>
+      <h2>Common questions</h2>
+    </div>
+
+    <div class="faq" id="faq">
+
+      <!-- QUESTION 1 -->
+      <div class="faq__item">
+        <button class="faq__q">Do you charge for estimates?</button>
+        <div class="faq__a">No. Estimates are free. Tell us about your property and what you'd like done, and we'll price the work before anything starts.</div>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="faq__item">
+        <button class="faq__q">What areas do you cover?</button>
+        <div class="faq__a">Union, Missouri and Franklin County. Snow removal and de-icing cover a wide area within that.</div>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="faq__item">
+        <button class="faq__q">How can I pay?</button>
+        <div class="faq__a">Cash, personal and company checks, money orders, Visa, MasterCard, Discover, American Express, PayPal, Venmo and Cash App.</div>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="faq__item">
+        <button class="faq__q">When can I reach you?</button>
+        <div class="faq__a">Call (636) 543-5520 or message us on Facebook — we're quick to respond whenever your property needs attention.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTACT BAND  (shared)
+     ========================================================= -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#d6ecc6">Get in touch</span>
+      <h2>Request your free estimate</h2>
+      <p>Tell us about your property and what you'd like done. We'll price it and get you on the schedule.</p>
+      <div class="lines">
+        <div><a href="tel:+16365435520">(636) 543-5520</a></div>
+        <div>MO-47, Union, MO 63084</div>
+        <div><a href="#" target="_blank" rel="noopener">Follow us on Facebook</a></div>
+      </div>
+      <a href="contact.html#contact-form" class="btn btn--ghost">Contact us today</a>
+    </div>
+    <!-- MAP: replace with a Google Maps <iframe> for the Union, MO address -->
+    <iframe src="https://www.google.com/maps?q=MO-47,+Union,+MO+63084&output=embed" width="100%" height="100%" style="border:0;border-radius:var(--photo-radius);min-height:280px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Henkel Lawn & Landscape service area map"></iframe>
+  </div>
+</section>
+<!-- =========================================================
+     FOOTER  (shared)
+     ========================================================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+
+      <div>
+        <div class="wordmark"><b>Henkel</b><span>Lawn &amp; Landscape</span></div>
+        <p>Full service lawn maintenance, landscape construction, snow removal and de-icing for Union, Missouri and Franklin County.</p>
+      </div>
+
+      <div>
+        <h5>Service area</h5>
+        <ul>
+          <li><a href="#">Union, MO</a></li>
+          <li><a href="#">Union, MO</a></li>
+          <li><a href="#">Franklin County</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Information</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="services.html">Our services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="gallery.html#testimonials">Testimonials</a></li>
+          <li><a href="#">Help wanted</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+16365435520">(636) 543-5520</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="contact.html#contact-form">Free estimate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div>&copy; <span id="year">2026</span> Henkel Lawn &amp; Landscape LLC All rights reserved.</div>
+      <div>Prototype — content from Henkel Lawn & Landscape's Facebook page</div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+/* =========================================================
+   JAVASCRIPT
+   Menu toggle, sticky header and footer year live in main.js.
+   Everything below is Services-only.
+   ========================================================= */
+
+/* --- Service filter tabs --------------------------------
+   Matches each button's data-filter against each card's
+   data-category. "all" clears the filter.
+   ----------------------------------------------------------- */
+const tabs  = document.querySelectorAll('.tab');
+const cards = document.querySelectorAll('.card');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const filter = tab.dataset.filter;
+    cards.forEach(card => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !show);
+    });
+  });
+});
+
+/* --- 4. FAQ accordion --------------------------------------
+   Opens one answer at a time. Delete the "close the others"
+   loop if you'd rather allow several open at once.
+   ----------------------------------------------------------- */
+document.querySelectorAll('.faq__q').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const wasOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+/* --- 5. Footer year (shared) ------------------------------- */
+
+</script></body>
+</html>

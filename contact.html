@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us | Henkel Lawn &amp; Landscape LLC | Union, MO</title>
+<meta name="description" content="Request a free consultation from Henkel Lawn & Landscape. Call (636) 543-5520 or send a message. Serving Union, MO.">
+
+<!-- =========================================================
+     FONTS — identical to the other three pages.
+     ========================================================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<style>
+/* Shared tokens, reset, header/topbar/nav, buttons, image
+   placeholders, footer and flag strip all live in style.css.
+   This block only holds rules specific to this page. */
+
+/* =========================================================
+   4. MAP BANNER  —  full-width map right under the header,
+   the way Reyes opens its contact page.
+   ========================================================= */
+.mapband{height:340px;position:relative}
+/* MAP: replace with a Google Maps <iframe> for the Union, MO address */
+.mapband .ph{width:100%;height:100%;border-radius:0;border:0}
+
+/* =========================================================
+   5. TRUST STRIP  (shared component, reused from the home page)
+   ========================================================= */
+.trust{background:var(--green);color:#fff}
+.trust .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.trust .item{padding:38px 30px;border-right:1px solid rgba(255,255,255,.18)}
+.trust .item:last-child{border-right:0}
+.trust h3{color:#fff;font-size:1.05rem;text-transform:uppercase;letter-spacing:.5px}
+.trust p{color:#dff0d2;font-size:.9rem;margin-top:6px}
+.trust .icon{font-size:1.7rem;margin-bottom:10px;display:block}
+
+/* =========================================================
+   6. CONTACT SPLIT  —  form left, call/hours/social right
+   ========================================================= */
+.split .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:start}
+
+/* --- Form --- */
+.form{display:grid;gap:18px}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:8px}
+.field label{font-family:var(--font-head);font-weight:600;font-size:.8rem;letter-spacing:.5px;text-transform:uppercase;color:var(--ink)}
+.field input,.field select,.field textarea{
+  font-family:var(--font-body);font-size:.95rem;color:var(--ink);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:13px 16px;background:#fff;transition:.2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}
+.field textarea{resize:vertical;min-height:130px}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:#c0392b}
+.field__error{font-size:.78rem;color:#c0392b;display:none}
+.field.has-error .field__error{display:block}
+
+.form__note{font-size:.82rem;color:var(--body)}
+.form__success{
+  display:none;background:var(--cream);border-left:4px solid var(--green);
+  border-radius:var(--radius);padding:20px 24px;font-size:.92rem;color:var(--ink);
+}
+.form__success.show{display:block}
+.form.is-sent .form__fields{display:none}
+
+/* --- Call / hours / social panel --- */
+.callpanel{background:var(--green-dark);color:#fff;border-radius:var(--radius);padding:44px}
+.callpanel h2{color:#fff}
+.callpanel p{color:#c9dcbe;margin-top:10px}
+.callpanel .big{font-family:var(--font-head);font-weight:700;font-size:1.7rem;color:#fff;margin-top:22px;display:block}
+.callpanel a.big:hover{color:var(--green-light)}
+.callpanel .divider{border-top:1px solid rgba(255,255,255,.18);margin:26px 0}
+
+.hours{display:grid;gap:8px;font-size:.9rem}
+.hours .row{display:flex;justify-content:space-between;color:#d8e7cf}
+.hours .row b{color:#fff;font-weight:600}
+
+.social{display:flex;gap:12px;margin-top:24px}
+.social a{
+  width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:.2s;
+}
+.social a:hover{background:var(--green-light);border-color:var(--green-light);color:var(--green-dark)}
+
+/* =========================================================
+   7. SHOP INFO CARDS  —  address, oil drop-off, service area
+   ========================================================= */
+.infocards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.infocard{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green-light);border-radius:var(--radius);padding:32px}
+.infocard h3{text-transform:uppercase;font-size:1rem;margin-bottom:10px}
+.infocard p{font-size:.92rem}
+
+/* =========================================================
+   8. PATRIOTIC STRIP  (shared)
+   ========================================================= */
+
+
+/* =========================================================
+   10. RESPONSIVE
+   ========================================================= */
+@media (max-width:1024px){
+  .trust .grid{grid-template-columns:repeat(2,1fr)}
+  .infocards{grid-template-columns:1fr}
+  .footer .cols{grid-template-columns:1fr 1fr}
+  .split .wrap{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:820px){
+  .burger{display:flex}
+  .header .wrap{height:70px}
+  .header .btn{display:none}
+  .nav{position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none;padding:14px 22px 22px}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;gap:2px}
+  .nav a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  .section{padding:64px 0}
+  .form__row{grid-template-columns:1fr}
+  .mapband{height:260px}
+}
+@media (max-width:560px){
+  .footer .cols{grid-template-columns:1fr}
+  .trust .grid{grid-template-columns:1fr}
+  .trust .item{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+  .topbar .wrap{justify-content:center;text-align:center}
+  .callpanel{padding:32px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     TOP BAR  (shared)
+     ========================================================= -->
+<div class="topbar">
+  <div class="wrap">
+    <div>Transforming your outdoor dreams into reality</div>
+    <div>
+      <a href="tel:+16365435520">(636) 543-5520</a> &nbsp;·&nbsp;
+      <a href="#" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     HEADER  —  "Contact Us" carries the .active class here
+     ========================================================= -->
+<header class="header" id="siteHeader">
+  <div class="wrap">
+
+    <a class="logo" href="index.html">
+      <b>Henkel<span>Lawn &amp; Landscape</span></b>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html#testimonials">Testimonials</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <a href="tel:+16365435520" class="btn btn--primary">Call now</a>
+  </div>
+</header>
+
+<!-- =========================================================
+     MAP BANNER
+     ========================================================= -->
+<section class="mapband">
+  <!-- MAP: replace with a Google Maps <iframe> for MO-47, Union, MO -->
+  <iframe src="https://www.google.com/maps?q=MO-47,+Union,+MO+63084&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Henkel Lawn & Landscape location map"></iframe>
+</section>
+
+<!-- =========================================================
+     TRUST STRIP
+     ========================================================= -->
+<section class="trust">
+  <div class="wrap">
+    <div class="grid">
+      <div class="item">
+        <span class="icon">🌿</span>
+        <h3>92% recommend us</h3>
+        <p>Based on 21 reviews from customers across Union, MO and Franklin County.</p>
+      </div>
+      <div class="item">
+        <span class="icon">📋</span>
+        <h3>Free consultation</h3>
+        <p>Tell us about your property and we'll put together a plan at no cost.</p>
+      </div>
+      <div class="item">
+        <span class="icon">💬</span>
+        <h3>Easy to reach</h3>
+        <p>Call or message us on Facebook — we're quick to respond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTACT SPLIT  —  form + call/hours/social panel
+     ========================================================= -->
+<section class="section split" id="contact-form">
+  <div class="wrap">
+
+    <!-- ===== FORM ===== -->
+    <div>
+      <span class="eyebrow">Send a message</span>
+      <h2>Request your free estimate</h2>
+      <p class="lead" style="margin-top:14px">Send a message through the form below and we'll get back to you as soon as possible.</p>
+
+      <form class="form" id="contactForm" style="margin-top:32px" novalidate>
+
+        <div class="form__fields" style="display:grid;gap:18px">
+
+          <div class="form__row">
+            <div class="field" id="field-name">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+              <span class="field__error">Please enter your name.</span>
+            </div>
+            <div class="field" id="field-phone">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              <span class="field__error">Please enter a phone number.</span>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field" id="field-email">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="field__error">Please enter a valid email.</span>
+            </div>
+            <div class="field" id="field-service">
+              <label for="service">Service needed</label>
+              <!-- SERVICE OPTIONS: keep this list in sync with services.html -->
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="Lawn maintenance">Lawn maintenance</option>
+                <option value="Fertilization & weed control">Fertilization &amp; weed control</option>
+                <option value="Mulch installation">Mulch installation</option>
+                <option value="Landscape installation">Landscape installation</option>
+                <option value="Paver patios & walkways">Paver patios &amp; walkways</option>
+                <option value="Snow removal & de-icing">Snow removal &amp; de-icing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="field-address">
+            <label for="address">Property address</label>
+            <input type="text" id="address" name="address" autocomplete="street-address" required>
+            <span class="field__error">Please enter the property address.</span>
+          </div>
+
+          <div class="field" id="field-message">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us a bit about the job…"></textarea>
+            <span class="field__error">Please add a short message.</span>
+          </div>
+
+          <p class="form__note">We'll never share your information. Fields marked required must be filled in before sending.</p>
+
+          <button type="submit" class="btn btn--primary" id="submitBtn" style="justify-self:start">Send message</button>
+
+        </div>
+
+        <!-- Shown after a successful (client-side only) submit -->
+        <div class="form__success" id="formSuccess">
+          Thanks — your message has been recorded. In the live site this form will email the shop directly; for now this is a working prototype with no backend attached.
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ===== CALL / HOURS / SOCIAL ===== -->
+    <div class="callpanel">
+      <span class="eyebrow">Call now</span>
+      <h2>Talk to us today</h2>
+      <p>Prefer the phone? We pick up around the clock.</p>
+
+      <a href="tel:+16365435520" class="big">(636) 543-5520</a>
+
+      <div class="divider"></div>
+
+      <div class="hours">
+        <div class="row"><span>Monday – Sunday</span><b>Open 24 hours</b></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="social">
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SHOP INFO CARDS
+     ========================================================= -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="infocards">
+
+      <div class="infocard">
+        <h3>Visit the shop</h3>
+        <p>MO-47<br>Union, MO 63084</p>
+      </div>
+
+      <div class="infocard">
+        <h3>Service area</h3>
+        <p>Union, Missouri and Franklin County, residential, commercial and public properties.</p>
+      </div>
+
+      <div class="infocard">
+        <h3>Used or recyclable oil</h3>
+        <p>Our shop is heated with used oils. Call <a href="tel:+16365435520" style="color:var(--green);font-weight:600">(636) 543-5520</a> to arrange pickup of motor oil, transmission fluid, cutting oil, brake fluid, diesel or home heating oil.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- =========================================================
+     FOOTER  (shared)
+     ========================================================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+
+      <div>
+        <div class="wordmark"><b>Henkel</b><span>Lawn &amp; Landscape</span></div>
+        <p>Full service lawn maintenance, landscape construction, snow removal and de-icing for Union, Missouri and Franklin County.</p>
+      </div>
+
+      <div>
+        <h5>Service area</h5>
+        <ul>
+          <li><a href="#">Union, MO</a></li>
+          <li><a href="#">Union, MO</a></li>
+          <li><a href="#">Franklin County</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Information</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="services.html">Our services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="gallery.html#testimonials">Testimonials</a></li>
+          <li><a href="#">Help wanted</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+16365435520">(636) 543-5520</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="contact.html#contact-form">Free estimate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div>&copy; <span id="year">2026</span> Henkel Lawn &amp; Landscape LLC All rights reserved.</div>
+      <div>Prototype — content from Henkel Lawn & Landscape's Facebook page</div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+/* =========================================================
+   JAVASCRIPT
+   Menu toggle, sticky header and footer year live in main.js.
+   Everything below is Contact-only: form validation + fake submit.
+   ========================================================= */
+
+/* --- Contact form validation + submit -------------------
+   Client-side only: this checks the required fields and, on
+   a valid submit, swaps the fields for a thank-you message.
+   TO CONNECT TO A REAL BACKEND: replace the "fake POST" block
+   with a fetch() call to the shop's form endpoint or email
+   service, and only show #formSuccess after that call resolves.
+   ----------------------------------------------------------- */
+const form = document.getElementById('contactForm');
+
+const requiredFields = [
+  { id: 'name',    wrap: 'field-name' },
+  { id: 'phone',   wrap: 'field-phone' },
+  { id: 'email',   wrap: 'field-email' },
+  { id: 'address', wrap: 'field-address' },
+  { id: 'message', wrap: 'field-message' },
+];
+
+function isValidEmail(value){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let valid = true;
+
+  requiredFields.forEach(({ id, wrap }) => {
+    const input   = document.getElementById(id);
+    const wrapper = document.getElementById(wrap);
+    const empty   = input.value.trim() === '';
+    const badEmail = id === 'email' && !empty && !isValidEmail(input.value.trim());
+
+    wrapper.classList.toggle('has-error', empty || badEmail);
+    if (empty || badEmail) valid = false;
+  });
+
+  if (!valid) return;
+
+  /* --- fake POST: swap this for a real submission --- */
+  form.classList.add('is-sent');
+  document.getElementById('formSuccess').classList.add('show');
+});
+
+/* --- 4. Footer year (shared) ------------------------------- */
+
+</script></body>
+</html>
