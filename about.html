@@ -42,7 +42,7 @@
       inset: 0
     }
 
-    /* BANNER PHOTO: replace with <img class="banner__img" src="images/about-banner.jpg" alt=""> */
+    /* BANNER PHOTO: replace with <img class="banner__img" src="about-banner.jpg" alt=""> */
     .banner__media .ph {
       width: 100%;
       height: 100%;
@@ -161,6 +161,12 @@
       color: var(--ink)
     }
 
+    .counters--trio {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 760px;
+      margin: 0 auto
+    }
+
     /* =========================================================
    6. STORY  —  copy left, photo pair + review badge right
    ========================================================= */
@@ -186,7 +192,7 @@
       gap: 18px
     }
 
-    /* STORY PHOTOS: replace both with <img src="images/…jpg" alt=""> */
+    /* STORY PHOTOS: replace both with <img src="…jpg" alt=""> */
     .story__media .ph:first-child {
       min-height: 320px
     }
@@ -439,6 +445,10 @@
         grid-template-columns: 1fr
       }
 
+      .counters--trio {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
       .footer .cols {
         grid-template-columns: 1fr 1fr
       }
@@ -511,7 +521,8 @@
     @media (max-width:560px) {
 
       .footer .cols,
-      .story__media {
+      .story__media,
+      .counters--trio {
         grid-template-columns: 1fr
       }
 
@@ -587,7 +598,7 @@
      ========================================================= -->
   <section class="banner">
     <div class="banner__media">
-      <!-- BANNER PHOTO: replace with <img class="banner__img" src="images/about-banner.jpg" alt=""> -->
+      <!-- BANNER PHOTO: replace with <img class="banner__img" src="about-banner.jpg" alt=""> -->
       <img class="banner__img" src="about-banner.jpg" alt="Henkel's crew on a finished property">
     </div>
     <div class="wrap">
@@ -657,9 +668,9 @@
       </div>
 
       <div class="story__media">
-        <!-- STORY PHOTOS: replace both with <img src="images/…jpg" alt=""> -->
-        <img src="images/about-story-1.jpg" alt="Landscaper working on a lawn">
-        <img src="images/about-story-2.jpg" alt="Finished backyard landscape">
+        <!-- STORY PHOTOS: replace both with <img src="…jpg" alt=""> -->
+        <img src="about-story-1.jpg" alt="Landscaper working on a lawn">
+        <img src="about-story-2.jpg" alt="Finished backyard landscape">
 
         <!-- REVIEW BADGE — update the rating and label -->
         <div class="badge">
@@ -717,7 +728,7 @@
         <p class="lead" style="margin:16px auto 0">Whether it's a vibrant garden, a serene outdoor space, or regular maintenance, our team is dedicated to cultivating beauty and sustainability.</p>
       </div>
 
-      <div class="counters" style="grid-template-columns:repeat(3,1fr);max-width:760px;margin:0 auto">
+      <div class="counters counters--trio">
         <div class="counter" style="background:#fff"><b data-count="92" data-suffix="%">0</b><span>Recommend us</span></div>
         <div class="counter" style="background:#fff"><b data-count="21">0</b><span>Facebook reviews</span></div>
         <div class="counter" style="background:#fff"><b data-count="771">0</b><span>Facebook followers</span></div>
